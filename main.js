@@ -24,8 +24,30 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
-
-
+const validateCredit = (card) => 
+{
+    let lastDigit = card.pop();
+    card.reverse();
+    let cardTotal = 0;
+    for(let i=0;i<card.length;i++)
+    {                
+        if(i % 2 === 0)
+        {
+            card[i] = card[i] * 2;
+            if(card[i] > 9)card[i] -= 9;
+        }
+        cardTotal += card[i];
+        
+    }
+    cardTotal += lastDigit;
+    if(cardTotal % 10 === 0)
+    {
+        return true;
+    }else{
+        
+        return false;
+    }
+}
 
 
 
